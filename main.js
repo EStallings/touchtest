@@ -1,4 +1,4 @@
-
+var firsttime = true;
 function touchHandler(event){
 	var mouse = {
 		x:0,
@@ -19,7 +19,9 @@ function touchHandler(event){
 	var touches = event.changedTouches;
 	var first   = touches[0];
 	var type    = "";
-
+	if(firsttime)
+		first.identifier = 0;
+	firsttime = false;
 	switch(event.type){
 		case "touchstart" :
 			if(first.identifier == 0) evts.lDown = true;
@@ -49,6 +51,6 @@ function touchHandler(event){
 	document.getElementById("mouse").innerHTML = JSON.stringify(mouse);
 	document.getElementById("evts").innerHTML = JSON.stringify(evts);
 }
-window.addEventListener("touchstart" , touchHandler);
-window.addEventListener("touchmove"  , touchHandler);
-window.addEventListener("touchend"   , touchHandler);
+document.addEventListener("touchstart" , touchHandler);
+document.addEventListener("touchmove"  , touchHandler);
+document.addEventListener("touchend"   , touchHandler);
