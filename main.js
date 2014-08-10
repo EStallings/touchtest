@@ -49,6 +49,6 @@ function touchHandler(event){
 	document.getElementById("mouse").innerHTML = JSON.stringify(mouse);
 	document.getElementById("evts").innerHTML = JSON.stringify(evts);
 }
-document.addEventListener("touchstart" , touchHandler);
-document.addEventListener("touchmove"  , touchHandler);
-document.addEventListener("touchend"   , touchHandler);
+window.addEventListener("touchstart" , touchHandler);
+window.addEventListener("touchmove"  , touchHandler);
+window.addEventListener("touchend"   , touchHandler);
