@@ -1,22 +1,20 @@
 var gTouches = [null, null];
+var mouse = {
+	x:0,
+	y:0
+}
 
+var evts = {
+	lDown: false,
+	lUp:   false,
+	rDown: false //don't need a rUp
+}
+
+function getMouseFromEvent(evt){
+	mouse.x = evt.clientX;
+	mouse.y = evt.clientY;
+}
 function touchHandler(event){
-	var mouse = {
-		x:0,
-		y:0
-	}
-
-	var evts = {
-		lDown: false,
-		lUp:   false,
-		rDown: false //don't need a rUp
-	}
-
-	function getMouseFromEvent(evt){
-		mouse.x = evt.clientX;
-		mouse.y = evt.clientY;
-	}
-
 	var first   = event.changedTouches[0];
 	var id = 0;
 	if(gTouches[0] === null || gTouches[0] === first.identifier){
